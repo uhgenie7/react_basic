@@ -20,7 +20,7 @@ class App extends Component {
       data: {
         data: { movies },
       },
-  } = await axios.get('https://yts.mx/api/v2/list_movies.json');
+  } = await axios.get('https://yts.mx/api/v2/list_movies.json?sort_by=rating');
   // state 처럼 만들어준 것
     console.log(movies);
   // 배열 안에 넣어줘야 함.
@@ -64,18 +64,28 @@ class App extends Component {
     const { isLoading, moviesArray } = this.state;
 
     return (
-      <div>
+      <section className='container'>
         {/* {isLoading ? 'Loading' : 'All Data Loading Complete!'} */}
         {/* {isLoading ? 'Loading' : <Movie/>} */}
-        {isLoading
-          ? 'Loading'
-          : moviesArray.map((movie) => {
-            console.log(movie);
-            // return <Movie />
-            return <Movie key={movie.id} title={movie.title} year={movie.year} rating={movie.rating}/>
-            // 초록색 Movie 는 Movie.js 의 Movie 다.
-          })}
-      </div>
+
+        {isLoading ? (
+          <div className="loader">'Loading'</div>
+        ) : (
+          <div className="movies">
+              {moviesArray.map((movie) => (
+                <Movie
+                  key={movie.id}
+                  title={movie.title}
+                  year={movie.year}
+                  rating={movie.rating}
+                  genres={movie.genres}
+                  summary={movie.summary}
+                  poster={movie.medium_cover_image}
+                />
+              ))}
+          </div>
+        )}
+      </section>
     );
   }
 }
