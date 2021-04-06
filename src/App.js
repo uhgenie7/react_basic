@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // json module terminal>> npm install axios
 import axios from 'axios';
 import Movie from './components/Movie';
+import './App.css';
 
 class App extends Component {
   // 로딩 중 >> 로딩 완료 / 즉, 상태 변화가 일어나는 페이지 / state를 정하고 setState를 만든다!
@@ -69,7 +70,7 @@ class App extends Component {
         {/* {isLoading ? 'Loading' : <Movie/>} */}
 
         {isLoading ? (
-          <div className="loader">'Loading'</div>
+          <div className="loader">Loading</div>
         ) : (
           <div className="movies">
               {moviesArray.map((movie) => (
