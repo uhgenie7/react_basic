@@ -1,5 +1,6 @@
-import React, { component } from 'react';
-function About() {
+import React from 'react';
+function About(props) {
+  console.log(props);
   return <div>Here is About Page</div>
 }
 

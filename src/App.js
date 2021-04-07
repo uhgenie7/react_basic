@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 import Home from './routes/Home';
 import { HashRouter, Route } from 'react-router-dom';
@@ -6,6 +6,7 @@ import { HashRouter, Route } from 'react-router-dom';
 // /package.json >> "react-router-dom": "^5.2.0",
 import About from './routes/About';
 import Navigation from './components/Navigation';
+import Detail from './routes/Detail';
 
 function App() {
   // return <Home/>
@@ -21,6 +22,7 @@ function App() {
       <Route path="/about" component={About} />
       {/* path는 우리가 정하는 이름. #에 찍히는 이름으로 컴포넌트 {About}으로 이동! */}
       {/* http://localhost:3000/#/about */}
+      <Route path="/movie_detail" component={Detail} />
     </HashRouter>
   )
 }
